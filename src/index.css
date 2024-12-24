@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animation-pause {
+    animation-play-state: paused;
+  }
+}
+@layer base {
+  body {
+    @apply flex items-center justify-center w-screen h-screen bg-gray-100;
+  }
+}
+
+@layer components {
+  .brands-wrapper {
+    @apply flex animate-infinite-scroll items-center justify-center md:justify-start [&_img]:max-w-none [&_li]:mx-4;
+  }
+}
