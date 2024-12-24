@@ -31,7 +31,7 @@ const ModalContact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:2080/api/v1/contact-us', {
+            const response = await fetch(import.meta.env.VITE_API_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -39,7 +39,6 @@ const ModalContact = () => {
                 body: JSON.stringify(formData),
             });
             if (response.ok) {
-                // Handle successful response
                 alert('Form submitted successfully!');
                 setFormData({
                     name: '',
@@ -52,7 +51,6 @@ const ModalContact = () => {
                 setIsPrivacyChecked(false);
                 closeModal();
             } else {
-                // Handle error response
                 alert('Failed to submit form.');
             }
         } catch (error) {
@@ -119,11 +117,12 @@ const ModalContact = () => {
                                             />
                                             <label
                                                 htmlFor="name"
-                                                className={`absolute left-4 top-4 text-lg text-gray-500 transition-all 
-                                                 ${formData.name ? 'top-1 text-sm text-purple-500' : 'top-4 text-lg text-gray-500'}`}
+                                                className={`absolute left-4 text-lg text-gray-500 transition-all
+                                                 ${formData.name ? 'top-[-2px] text-sm text-purple-500' : 'top-4 text-lg text-gray-500'}`}
                                             >
                                                 Name <span className="text-red-500">*</span>
                                             </label>
+
                                         </div>
 
                                         <div className="flex space-x-4">
@@ -143,7 +142,7 @@ const ModalContact = () => {
                                                 <label
                                                     htmlFor="email"
                                                     className={`absolute left-4 top-4 text-lg text-gray-500 transition-all 
-                                                     ${formData.email ? 'top-1 text-sm text-purple-500' : 'top-4 text-lg text-gray-500'}`}
+                                                     ${formData.email ? 'top-[-2px] text-sm text-purple-500' : 'top-4 text-lg text-gray-500'}`}
                                                 >
                                                     E-mail address <span className="text-red-500">*</span>
                                                 </label>
@@ -179,7 +178,7 @@ const ModalContact = () => {
                                             <label
                                                 htmlFor="company"
                                                 className={`absolute left-4 top-4 text-lg text-gray-500 transition-all 
-                                                 ${formData.company ? 'top-1 text-sm text-purple-500' : 'top-4 text-lg text-gray-500'}`}
+                                                 ${formData.company ? 'top-[-2px] text-sm text-purple-500' : 'top-4 text-lg text-gray-500'}`}
                                             >
                                                 Company Name <span className="text-red-500">*</span>
                                             </label>
@@ -203,7 +202,7 @@ const ModalContact = () => {
                                             <label
                                                 htmlFor="support"
                                                 className={`absolute left-4 top-4 text-lg text-gray-500 transition-all 
-                                                 ${formData.support ? 'top-1 text-sm text-purple-500' : 'top-4 text-lg text-gray-500'}`}
+                                                 ${formData.support ? 'top-[-2px] text-sm text-purple-500' : 'top-4 text-lg text-gray-500'}`}
                                             >
                                                 Support <span className="text-red-500">*</span>
                                             </label>
@@ -221,7 +220,7 @@ const ModalContact = () => {
                                             <label
                                                 htmlFor="message"
                                                 className={`absolute left-4 top-4 text-lg text-gray-500 transition-all 
-                                                 ${formData.message ? 'top-1 text-sm text-purple-500' : 'top-4 text-lg text-gray-500'}`}
+                                                 ${formData.message ? 'top-[-2px] text-sm text-purple-500' : 'top-4 text-lg text-gray-500'}`}
                                             >
                                                 Message <span className="text-red-500">*</span>
                                             </label>
